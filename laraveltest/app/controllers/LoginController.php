@@ -57,6 +57,11 @@ class LoginController extends BaseController {
 		if (is_null($tckt)) {
 			return array('result' => 'false');
 		} else {
+			if(time() - strtotime($tckt->created_at) >= 15){
+				Ticket::destroy($tckt->ticket);
+				return array('result' => 'false');
+			}
+			
 			return array('result' => 'true', 'user' => $tckt->empleado->user);
 		}
 	}

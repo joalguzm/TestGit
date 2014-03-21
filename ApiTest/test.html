@@ -1,0 +1,29 @@
+<div id="crear"> 
+	<input value="Mostrar" type="button" ng-click="consultarPersonas()"/><br />
+</div>
+<input type="text" ng-model="search" placeholder="Buscar" /><br />
+<div border="1">
+	<div style="display: block;border:1px solid black;" ng-repeat="persona in personas | orderBy:'nombre' | filter:search">
+		<div><input ng-model="persona.nombre"/></div>
+		<div><input ng-model="persona.apellido"/></div>
+		<div style="border-left:1px solid black; border-right:1px solid black;">
+			<div>
+				<div style="display: block;" ng-repeat="mascota in persona.mascotas">
+					<mascota nombre="mascota.nombre" click="eliminarMascota(mascota.id)"></mascota>					
+				</div>
+				<div>
+					<div><input type="text" ng-model="persona.nuevaMascota" placeholder="Nueva mascota" /></div>
+				</div>
+			</div>
+		</div>
+		<div><input value="Guardar Cambios" type="button" ng-click="editarPersona(persona)"/></div>
+		<div><input value="Eliminar" type="button" ng-click="eliminarPersona(persona.id)"/></div>
+	</div>
+	<br/>
+	<div>
+		<div><input ng-model="nombre"/></div>
+		<div><input ng-model="apellido"/></div>
+		<div><input value="Crear" type="button" ng-click="crearPersona(nombre,apellido)"/></div>
+	</div>
+</div>
+<button ng-click="logout()" >Logout</button>

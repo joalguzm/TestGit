@@ -53,8 +53,8 @@ myApp.factory('testService',function(){
 })
 
 testCtrl = myApp.controller("testController",function($scope, $http, $q, people, $cookieStore,testService) {
-	$scope.consultarPersonas = function() {
-    
+
+	$scope.consultarPersonas = function() {    
 		$http.get("http://localhost/laravel/mostrarPersonas")
 			.success(function(data){
 				$scope.personas = [];
@@ -68,7 +68,6 @@ testCtrl = myApp.controller("testController",function($scope, $http, $q, people,
 	}
 
 	$scope.editarPersona = function(persona) {
-
 		$http.put("http://localhost/laravel/editarPersona/"+persona.id, {nombre: persona.nombre , apellido: persona.apellido })
 			.success(function(data){
 				console.log(data);
@@ -134,9 +133,6 @@ testCtrl = myApp.controller("testController",function($scope, $http, $q, people,
 	$scope.logout = function() {
 		$cookieStore.remove('user');
 		window.location = "http://localhost/laravel/logout/"+$cookieStore.get('ticket');
-
-
-
 	};
 	
 	testService.notify("54165");

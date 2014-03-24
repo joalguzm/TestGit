@@ -21,11 +21,11 @@
 		</form>
 	</div>
 </div>
-<div  class="row-fluid" border="1">
+<div  class="row-fluid">
 	<div class="row-fluid" style="display: block;border:1px solid black;" ng-repeat="persona in personas | orderBy:'nombre' | filter:search">
 		<div class="span4">
-			<input ng-model="persona.nombre"/>
-			<input ng-model="persona.apellido"/>	
+			<input tooltip="Ingrese su nombre" ng-model="persona.nombre"/>
+			<input tooltip="Ingrese su apellido" ng-model="persona.apellido"/>	
 		</div>
 		<div class="span4" style="border-left:1px solid black; border-right:1px solid black;">
 			<div>
@@ -33,7 +33,7 @@
 					<mascota nombre="mascota.nombre" click="eliminarMascota(mascota.id)"></mascota>					
 				</div>
 				<div>
-					<div><input type="text" ng-model="persona.nuevaMascota" placeholder="Nueva mascota" /></div>
+					<div><input tooltip="Ingrese el nombre de su nueva mascota" type="text" ng-model="persona.nuevaMascota" placeholder="Nueva mascota" /></div>
 				</div>
 			</div>
 		</div>

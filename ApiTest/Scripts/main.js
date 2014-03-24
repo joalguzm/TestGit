@@ -1,4 +1,4 @@
-myApp= angular.module("APITest",['ngRoute','ngCookies']);
+myApp= angular.module("APITest",['ngRoute','ngCookies','ui.bootstrap']);
 
 myApp.config(function($routeProvider,$locationProvider){
 	$routeProvider.when('/',

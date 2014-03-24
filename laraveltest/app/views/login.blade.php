@@ -45,7 +45,7 @@
 					<?php if (isset($error)) echo "<div class='error'>$error</div>"; ?>
 
 					<div style="height: 32px;"></div>
-					<form id="loginform" action="./logear?callback=<?php echo $callback;?>" method="post">
+					<form id="loginform" action="{{ url('logear') }}?callback={{ $callback }}" method="post">
 						<table style="width: 315px;">
 							<tr>
 								<td><strong>User:</strong></td><td><input type="text" name="user" required="required" value="<?php if(isset($user)) echo $user; ?>"/></td>

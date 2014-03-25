@@ -21,6 +21,7 @@
 		</form>
 	</div>
 </div>
+
 <div  class="row-fluid">
 	<div class="row-fluid" style="display: block;border:1px solid black;" ng-repeat="persona in personas | orderBy:'nombre' | filter:search">
 		<div class="span4">
@@ -39,7 +40,7 @@
 		</div>
 		<div class="span4">
 			<input value="Guardar Cambios" type="button" ng-click="editarPersona(persona)"/>
-			<input value="Eliminar" type="button" ng-click="eliminarPersona(persona.id)"/>
+			<input value="Eliminar" type="button" tooltip="Noooooo" ng-click="eliminarPersona(persona.id)"/>
 		</div>
 	</div>
 	<div class="row-fluid">
@@ -48,4 +49,4 @@
 		<div><input value="Crear" type="button" ng-click="crearPersona(nombre,apellido)"/></div>
 	</div>
 </div>
-<img src="Koala.jpg" class="img-polaroid" style="width: 400px;" />
+<img src="Koala.jpg" class="img-polaroid" style="width: 400px;" tooltip="holi" />

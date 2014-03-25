@@ -6,25 +6,31 @@ myApp.config(function($routeProvider,$locationProvider){
 		templateUrl:'test.html',
 		controller: 'testController',
 		resolve: testCtrl.resolve
+	}).when('/error', {
+		templateUrl: 'error.html'
 	}).when('/:ticket', {
 	    resolve: {
 	    	valido: function($http, $route, $location,$cookieStore) {
-	    		$http.get("http://localhost/laravel/validarTicket?ticket="+$route.current.params.ticket)
-				.success(function(data){
-					console.log(data);
-					if(!data.user)
-						window.location = "http://localhost/laravel/login?callback=http%3A%2F%2Flocalhost/ApiTest/";
-					else{
-						console.log("Exitooooo!!!! "+data.user);
-						$cookieStore.put('user',data.user);
-						$cookieStore.put('ticket',$route.current.params.ticket);
-						$location.path("/");
+				if ($route.current.params.ticket.length < 80)
+					$location.path('/error');
+				else {
+		    		$http.get("http://localhost/laravel/validarTicket?ticket="+$route.current.params.ticket)
+					.success(function(data){
+						console.log(data);
+						if(!data.user)
+							window.location = "http://localhost/laravel/login?callback=http%3A%2F%2Flocalhost/ApiTest/";
+						else{
+							console.log("Exitooooo!!!! "+data.user);
+							$cookieStore.put('user',data.user);
+							$cookieStore.put('ticket',$route.current.params.ticket);
+							$location.path("/");
 
-					}
-				})
-				.error(function(data){
+						}
+					})
+					.error(function(data){
 
-				});
+					});
+				}
 		    }
 	    }
 	});

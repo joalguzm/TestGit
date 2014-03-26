@@ -59,7 +59,6 @@ myApp.factory('testService',function(){
 })
 
 testCtrl = myApp.controller("testController",function($scope, $http, $q, people, $cookieStore,testService) {
-
 	$scope.consultarPersonas = function() {    
 		$http.get("http://localhost/laravel/mostrarPersonas")
 			.success(function(data){

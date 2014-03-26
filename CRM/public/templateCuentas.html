@@ -28,9 +28,8 @@
 							<td><select ng-model="cuenta.tipo" ng-options="t.id as t.descripcion for t in tipoCuentas"></select></td>
 
 							<td class="td-actions">
-								<input value="Guardar Cambios" type="button" ng-click="editarCandidato(candidato)"/>
-								
-								<input value="Eliminar" type="button" tooltip="Noooooo" ng-click="eliminarCandidato(candidato.id)"/>
+								<input value="Guardar Cambios" type="button" ng-click="editarCuenta(cuenta)"/>
+								<input value="Eliminar" type="button" tooltip="Noooooo" ng-click="eliminarCuenta(cuenta.id)"/>
 							</td>
 						</tr>
 						<tr>

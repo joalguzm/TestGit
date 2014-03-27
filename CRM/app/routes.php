@@ -24,3 +24,8 @@ Route::delete('/api/cuentas/eliminar/{id}', 'CuentaController@eliminar');
 Route::put('/api/cuentas/editar/{id}', 'CuentaController@editar');
 
 Route::get('/api/cuentas/tipos', 'CuentaController@consultarTipos');
+
+Route::post('/api/contactos/crear', 'ContactoController@crear');
+Route::get('/api/contactos', 'ContactoController@mostrar');
+Route::delete('/api/contactos/eliminar/{id}', 'ContactoController@eliminar');
+Route::put('/api/contactos/editar/{id}', 'ContactoController@editar');

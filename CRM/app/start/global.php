@@ -82,3 +82,4 @@ require app_path().'/filters.php';
 
 App::bind('CandidatoRepoInterface', 'CandidatoRepo');
 App::bind('CuentaRepoInterface', 'CuentaRepo');
+App::bind('ContactoRepoInterface', 'ContactoRepo');

@@ -9,8 +9,8 @@ class CandidatoRepo implements CandidatoRepoInterface {
 
 	public function crearCandidato($usuario, $descripcion) {
 		$candidato = new Candidato();
-		$candidato->descripcion=Input::get('descripcion');
-		$candidato->usuario=Input::get('usuario');
+		$candidato->descripcion=$usuario;
+		$candidato->usuario=$descripcion;
 		$candidato->estado_id = 1;
 		$candidato->save();
 	}

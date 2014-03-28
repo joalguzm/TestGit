@@ -7,9 +7,9 @@ class ActividadRepo implements ActividadRepoInterface {
 		return Actividad::All();
 	}
 
-	public function crearActividad($fecha_creacion,$titulo,$fecha,$comentarios,$recordatorio,$estado,$fecha_confirmacion,$tipo,$creador,$responsable,$candidato) {
+	public function crearActividad($titulo,$fecha,$comentarios,$recordatorio,$estado,$fecha_confirmacion,$tipo,$creador,$responsable,$candidato) {
 		$actividad = new Actividad();
-		$actividad->fecha_creacion=$fecha_creacion;
+		$actividad->fecha_creacion=time();
 		$actividad->titulo=$titulo;
 		$actividad->fecha=$fecha;
 		$actividad->comentarios=$comentarios;
@@ -29,9 +29,8 @@ class ActividadRepo implements ActividadRepoInterface {
 		Actividad::destroy($id);
 		
 	}
-	public function editarActividad($id,$fecha_creacion,$titulo,$fecha,$comentarios,$recordatorio,$estado,$fecha_confirmacion,$tipo,$creador,$responsable,$candidato) {
+	public function editarActividad($id,$titulo,$fecha,$comentarios,$recordatorio,$estado,$fecha_confirmacion,$tipo,$creador,$responsable,$candidato) {
 		$actividad = Actividad::find($id);
-		$actividad->fecha_creacion=$fecha_creacion;
 		$actividad->titulo=$titulo;
 		$actividad->fecha=$fecha;
 		$actividad->comentarios=$comentarios;

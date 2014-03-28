@@ -8,5 +8,6 @@ class Cuenta extends Eloquent {
 	protected $table = 'cuenta';
 	protected $primaryKey = 'id';
 	public $timestamps = false;  
+	protected $guarded = array('id');
 }
 ?>

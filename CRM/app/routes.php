@@ -10,20 +10,17 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::post('/api/candidatos/crear', 'CandidatoController@crear');
-Route::get('/api/candidatos', 'CandidatoController@mostrar');
+Route::resource('api/candidatos', 'CandidatoController');
+/*Route::get('/api/candidatos', 'CandidatoController@mostrar');
 Route::delete('/api/candidatos/eliminar/{id}', 'CandidatoController@eliminar');
-Route::put('/api/candidatos/editar/{id}', 'CandidatoController@editar');
-Route::get('/',function(){
+Route::put('/api/candidatos/editar/{id}', 'CandidatoController@editar');**/
+Route::any('/candidatos/{path?}',function(){
 	return View::make('index');
 });
 
-Route::post('/api/cuentas/crear', 'CuentaController@crear');
-Route::get('/api/cuentas', 'CuentaController@mostrar');
-Route::delete('/api/cuentas/eliminar/{id}', 'CuentaController@eliminar');
-Route::put('/api/cuentas/editar/{id}', 'CuentaController@editar');
-
 Route::get('/api/cuentas/tipos', 'CuentaController@consultarTipos');
+Route::resource('api/cuentas', 'CuentaController');
+
 
 Route::post('/api/contactos/crear', 'ContactoController@crear');
 Route::get('/api/contactos', 'ContactoController@mostrar');

@@ -37,14 +37,14 @@ testCtrl = myApp.controller("testController", function($scope, $http, $q, $cooki
 		});
 	}
 	$scope.editarCandidato = function(candidato) {
-		$http.put("http://localhost/CRM/api/candidatos/editar/"+candidato.id, {usuario: candidato.usuario , descripcion: candidato.descripcion})
+		$http.put("http://localhost/CRM/api/candidatos/"+candidato.id, {usuario: candidato.usuario , descripcion: candidato.descripcion})
 		.success(function(data){
 			console.log(data);
 		});
 	};
 
 	$scope.crearCandidato = function(usuario, descripcion) {
-		$http.post("http://localhost/CRM/api/candidatos/crear", {usuario: usuario , descripcion: descripcion})
+		$http.post("http://localhost/CRM/api/candidatos", {usuario: usuario , descripcion: descripcion})
 		.success(function(data){
 			console.log(data);
 			$scope.usuario = "";
@@ -54,7 +54,7 @@ testCtrl = myApp.controller("testController", function($scope, $http, $q, $cooki
 	};
 
 	$scope.eliminarCandidato = function(id) {
-		$http.delete("http://localhost/CRM/api/candidatos/eliminar/"+id)
+		$http.delete("http://localhost/CRM/api/candidatos/"+id)
 		.success(function(data){
 			console.log(data);
 			$scope.consultarCandidatos();
@@ -89,14 +89,14 @@ cuentaCtrl = myApp.controller("cuentaController", function($scope, $http, $q, $c
 	}
 
 	$scope.editarCuenta = function(cuenta) {
-		$http.put("http://localhost/CRM/api/cuentas/editar/"+cuenta.id, {nombre: cuenta.nombre, descripcion: cuenta.descripcion, tipo: cuenta.tipo, numero: cuenta.numero})
+		$http.put("http://localhost/CRM/api/cuentas/"+cuenta.id, {nombre: cuenta.nombre, descripcion: cuenta.descripcion, tipo: cuenta.tipo, numero: cuenta.numero})
 		.success(function(data){
 			console.log(data);
 		});
 	};
 
 	$scope.crearCuenta = function(nombre,descripcion,cuenta,tipo) {
-		$http.post("http://localhost/CRM/api/cuentas/crear", {nombre: nombre, descripcion: descripcion, tipo: tipo, numero: cuenta})
+		$http.post("http://localhost/CRM/api/cuentas", {nombre: nombre, descripcion: descripcion, tipo: tipo, numero: cuenta})
 		.success(function(data){
 			console.log(data);
 			$scope.nombre = "";
@@ -108,7 +108,7 @@ cuentaCtrl = myApp.controller("cuentaController", function($scope, $http, $q, $c
 	};
 
 	$scope.eliminarCuenta = function(id) {
-		$http.delete("http://localhost/CRM/api/cuentas/eliminar/"+id)
+		$http.delete("http://localhost/CRM/api/cuentas/"+id)
 		.success(function(data){
 			console.log(data);
 			$scope.consultarCuentas();

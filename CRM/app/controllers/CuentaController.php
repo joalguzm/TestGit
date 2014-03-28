@@ -21,23 +21,23 @@ class CuentaController extends BaseController {
 		$this->cuentaRepo  = $cuenta;
 	}
 
-	public function crear()
+	public function store()
 	{
-		return $this->cuentaRepo->crearCuenta(Input::get('nombre'), Input::get('descripcion'),Input::get('tipo'), Input::get('numero'));
+		return $this->cuentaRepo->crearCuenta(Input::All());
 	}
 
-	public function mostrar()
+	public function index()
 	{
 		return $this->cuentaRepo->consultarTodos();
 	}
 
 
-	public function editar($id)
+	public function update($id)
 	{
 		return $this->cuentaRepo->editarCuenta($id,Input::get('nombre'), Input::get('descripcion'),Input::get('tipo'), Input::get('numero'));
 	}
 
-	public function eliminar($id)
+	public function destroy($id)
 	{
 		return $this->cuentaRepo->eliminarCuenta($id);
 	}

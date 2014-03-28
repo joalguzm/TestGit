@@ -7,12 +7,9 @@ class CuentaRepo implements CuentaRepoInterface {
 		return Cuenta::All();
 	}
 
-	public function crearCuenta($nombre,$descripcion,$tipo,$numero) {
+	public function crearCuenta($postData) {
 		$cuenta = new Cuenta();
-		$cuenta->descripcion=$descripcion;
-		$cuenta->nombre=$nombre;
-		$cuenta->tipo=$tipo;
-		$cuenta->numero=$numero;
+		$cuenta->fill($postData);	
 		$cuenta->save();
 	}
 

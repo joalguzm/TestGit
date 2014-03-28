@@ -7,11 +7,9 @@ class CandidatoRepo implements CandidatoRepoInterface {
 		return Candidato::where('estado_id', '=', 1)->get();
 	}
 
-	public function crearCandidato($usuario, $descripcion) {
+	public function crearCandidato($postData) {
 		$candidato = new Candidato();
-		$candidato->descripcion=$usuario;
-		$candidato->usuario=$descripcion;
-		$candidato->estado_id = 1;
+		$candidato->fill($postData);
 		$candidato->save();
 	}
 

@@ -21,23 +21,27 @@ class CandidatoController extends BaseController {
 		$this->candidatoRepo  = $candidato;
 	}
 
-	public function crear()
+	public function index()
 	{
-		return $this->candidatoRepo->crearCandidato(Input::get('usuario'), Input::get('descripcion'));
+		//
 	}
-
-	public function mostrar()
+	public function show()
 	{
 		return $this->candidatoRepo->consultarTodos();
 	}
 
+	public function store()
+	{
+		return $this->candidatoRepo->crearCandidato(Input::get('usuario'), Input::get('descripcion'));
+	}
 
-	public function editar($id)
+
+	public function update($id)
 	{
 		return $this->candidatoRepo->editarCandidato($id,Input::get('usuario'), Input::get('descripcion'));
 	}
 
-	public function eliminar($id)
+	public function destroy($id)
 	{
 		return $this->candidatoRepo->eliminarCandidato($id);
 	}
